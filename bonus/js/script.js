@@ -46,10 +46,7 @@ function play(){
                 casellaGriglia.style.backgroundColor = "red";
                 alert("HAI PERSO");
                 finePartita=1;
-                const listaCaselle = document.querySelectorAll(".casella");
-                for (let i = 0; i <bombs.length; i++) {
-                listaCaselle[bombs[i]-1].style.backgroundColor = "red";
-                }
+                mostraBombe(bombs);
             }
             else{
                 casellaGriglia.classList.add("bg-primary");
@@ -95,4 +92,12 @@ function arrayBombe(numero_bombe,numero_celle){
         bombe.push(bomba);
     }
     return bombe
+}
+
+// Funzione mostra bombe a fine partita
+function mostraBombe(vettoreBombe){
+    const listaCaselle = document.querySelectorAll(".casella");
+    for (let i = 0; i <listaCaselle.length ; i++) {
+        listaCaselle[vettoreBombe[i]-1].style.backgroundColor = "red";
+    }
 }
