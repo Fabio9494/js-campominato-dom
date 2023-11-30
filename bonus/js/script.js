@@ -35,17 +35,21 @@ function play(){
     
     cellePerRiga = Math.sqrt(numeroCelle);
     let bombs = arrayBombe(NUMERO_BOMBE , numeroCelle);
-    console.log(bombs)
+    console.log(bombs.sort(function(a, b){return a - b}));
     
-    for (let i = 0; i < numeroCelle; i++) {
-        let casellaGriglia = creaCasella(i+1,cellePerRiga)
+    for (let i = 1; i <= numeroCelle; i++) {
+        let casellaGriglia = creaCasella(i,cellePerRiga);
         casellaGriglia.addEventListener("click",function(){
             if(finePartita==0)
-            if(bombs.includes(i+1)){
+            if(bombs.includes(i)){
                 console.log("La bombaaaaaaaa")
-                casellaGriglia.classList.add("bg-danger");
+                casellaGriglia.style.backgroundColor = "red";
                 alert("HAI PERSO");
-                finePartita=1
+                finePartita=1;
+                const listaCaselle = document.querySelectorAll(".casella");
+                for (let i = 0; i <bombs.length; i++) {
+                listaCaselle[bombs[i]-1].style.backgroundColor = "red";
+                }
             }
             else{
                 casellaGriglia.classList.add("bg-primary");
