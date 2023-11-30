@@ -8,6 +8,7 @@ function play(){
     let livelloDifficolta = parseInt(difficolta.value);
     const NUMERO_BOMBE=16;
     let punti=0;
+    let finePartita = 0;
    
     grid.innerHTML=" ";
 
@@ -35,14 +36,16 @@ function play(){
     cellePerRiga = Math.sqrt(numeroCelle);
     let bombs = arrayBombe(NUMERO_BOMBE , numeroCelle);
     console.log(bombs)
-
+    
     for (let i = 0; i < numeroCelle; i++) {
         let casellaGriglia = creaCasella(i+1,cellePerRiga)
         casellaGriglia.addEventListener("click",function(){
+            if(finePartita==0)
             if(bombs.includes(i+1)){
                 console.log("La bombaaaaaaaa")
                 casellaGriglia.classList.add("bg-danger");
-                alert("HAI PERSO")
+                alert("HAI PERSO");
+                finePartita=1
             }
             else{
                 casellaGriglia.classList.add("bg-primary");
