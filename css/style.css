@@ -1,0 +1,17 @@
+.griglia{
+    width: 1000px;
+}
+
+.casella{
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border: solid black 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.click{
+    background-color: lightblue;
+}
